@@ -59,12 +59,12 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
 sudo ldconfig
 sudo apt-get install libcurl4-openssl-dev
 rm -rf tmp
-screen sudo lua5.3 Drox.lua
+screen sudo lua5.3 Dragon.lua
 ;;
 2)
 echo -e "\e[1m\e[32mThe bot is running now : جاري تشغيل البوت الان : \e[0m"
 sleep 2
-screen -S Drox -X kill
-screen -S Drox ./Drox
+screen -S Dragon -X kill
+screen -S Dragon ./Dragon
 ;;
 esac

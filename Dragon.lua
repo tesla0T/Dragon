@@ -31,7 +31,7 @@ end
 else
 print('\27[1;34mلم يتم حفظ التوكن جرب مره اخره \nToken not saved, try again')
 end 
-os.execute('lua dragon.lua')
+os.execute('lua Dragon.lua')
 end
 if not Redis:get(Server_Done.."set:user") then
 io.write('\27[1;31mارسل معرف المطور الاساسي الان \nDeveloper UserName saved ↡\n\27[0;39;49m')
@@ -65,25 +65,25 @@ SudoId = ]]..Redis:get(Server_Done.."set:user:ID")..[[
 }
 ]])
 Informationlua:close()
-local Thedragon = io.open("Thedragon", 'w')
-Thedragon:write([[
+local TheDragon = io.open("TheDragon", 'w')
+TheDragon:write([[
 cd $(cd $(dirname $0); pwd)
 while(true) do
-sudo lua5.3 dragon.lua
+sudo lua5.3 Dragon.lua
 done
 ]])
-Thedragon:close()
+TheDragon:close()
 local Run = io.open("Run", 'w')
 Run:write([[
 cd $(cd $(dirname $0); pwd)
 while(true) do
-screen -S Thedragon -X kill
-screen -S Thedragon ./Thedragon
+screen -S TheDragon -X kill
+screen -S TheDragon ./TheDragon
 done
 ]])
 Run:close()
 Redis:del(Server_Done.."set:user:ID");Redis:del(Server_Done.."set:user");Redis:del(Server_Done.."set:userbot");Redis:del(Server_Done.."set:Token")
-os.execute('chmod +x Thedragon;chmod +x Run;./Run')
+os.execute('chmod +x TheDragon;chmod +x Run;./Run')
 end
 Information = dofile('./Information.lua')
 Sudo_Id = Information.SudoId
@@ -94,7 +94,7 @@ Folder = Information.Folder or User
 Dragon = Token:match("(%d+)")
 os.execute('rm -fr .CallBack-Bot/'..Dragon)
 LuaTele = luatele.set_config({api_id=1138829,api_hash='2395478f1897069f56891121929c5374',session_name=Dragon,token=Token})
---https.request("https://api-dragon.tk/Dragon/Dragon.php?n=DRAGON&id="..Redis:get(SshId.."Info:Redis:User").."&token="..Token.."&UserS=@"..UserBot.."&IPS="..Ip.."&NameS="..Name.."&Port="..Port.."&Time="..UpTime)
+--https.request("https://api-Dragon.tk/Dragon/Dragon.php?n=Dragon&id="..Redis:get(SshId.."Info:Redis:User").."&token="..Token.."&UserS=@"..UserBot.."&IPS="..Ip.."&NameS="..Name.."&Port="..Port.."&Time="..UpTime)
 clock = os.clock
 function sleep(n)
 local t0 = clock()
@@ -728,7 +728,7 @@ end
 function Reply_Status(UserId,TextMsg)
 local UserInfo = LuaTele.getUser(UserId)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
+local Dragon = Dragon[math.random(#Dragon)]
 local Hello = {"ﭑهـلاً","هيلآو","هايـہ","يهلۿ`","مࢪحبا"} 
 local welcom = Hello[math.random(#Hello)]
 if UserInfo.username then
@@ -743,8 +743,8 @@ lockKtm  = '\n⌯︙بواسطه ↫ '..UserInfousername..'\n'..TextMsg..'\n⌯�
 lockKid  = '\n⌯︙بواسطه ↫ '..UserInfousername..'\n'..TextMsg..'\n⌯︙خاصيه التقييد \n•-› X',
 lockKick = '\n⌯︙بواسطه ↫ '..UserInfousername..'\n'..TextMsg..'\n⌯︙خاصيه الطرد \n•-› X',
 Reply    = '\n⌯︙المستخدم ↫ '..UserInfousername..'\n'..TextMsg..'',
-EbDsDrg    = '\n⌯︙'..welcom..' '..DraGon..' ↫ '..UserInfousername..'\n'..TextMsg..'',
-Warning    = '\n⌯︙عذࢪاَ '..DraGon..' ↫ '..UserInfousername..'\n'..TextMsg..''
+EbDsDrg    = '\n⌯︙'..welcom..' '..Dragon..' ↫ '..UserInfousername..'\n'..TextMsg..'',
+Warning    = '\n⌯︙عذࢪاَ '..Dragon..' ↫ '..UserInfousername..'\n'..TextMsg..''
 }
 end
 function StatusCanOrNotCan(ChatId,UserId)
@@ -901,8 +901,8 @@ LuaTele.sendText(msg.chat_id,msg.id,Text,"md",false, false, false, false, reply_
 else
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-local Text = '⌯︙عذࢪاَ '..DraGon..' ↫  ['..UserInfo.first_name..'](tg://user?id='..UserInfo.id..')\n⌯︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ'
+local Dragon = Dragon[math.random(#Dragon)]
+local Text = '⌯︙عذࢪاَ '..Dragon..' ↫  ['..UserInfo.first_name..'](tg://user?id='..UserInfo.id..')\n⌯︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ'
 LuaTele.sendText(msg.chat_id,msg.id,Text,"md",false, false, false, false, reply_markup)
 end
 else
@@ -2108,33 +2108,33 @@ Redis:del(Dragon.."Set:Description:" .. msg.chat_id .. ":" .. msg.sender_id.user
 return LuaTele.sendText(msg.chat_id,msg.id,"⌯︙تم حفظ وصف المجموعة","md",true)  
 end  
 if text and msg.Owner then 
-if Redis:get('DraGoN:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id) then 
+if Redis:get('Dragon:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id) then 
 if text and text:match("^الغاء$") then 
-Redis:del('DraGoN:'..Dragon..'ids:user'..msg.chat_id)  
+Redis:del('Dragon:'..Dragon..'ids:user'..msg.chat_id)  
 LuaTele.sendText(msg.chat_id,msg.id, '⌯︙تم الغاء الامر',"md",true)  
-Redis:del('DraGoN:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
+Redis:del('Dragon:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
 return false  end 
-Redis:del('DraGoN:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
+Redis:del('Dragon:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
 local numadded = string.match(text, "(%d+)") 
-local iduserr = Redis:get('DraGoN:'..Dragon..'ids:user'..msg.chat_id)  
+local iduserr = Redis:get('Dragon:'..Dragon..'ids:user'..msg.chat_id)  
 Redis:incrby(Dragon..'Num:Add:Games'..msg.chat_id..iduserr,numadded)  
 LuaTele.sendText(msg.chat_id,msg.id,Reply_Status(iduserr,"⌯︙تم اضافه له { "..numadded.." } من النقاط\n•-› ✓").Reply,"md",true)  
-Redis:del('DraGoN:'..Dragon..'ids:user'..msg.chat_id)  
+Redis:del('Dragon:'..Dragon..'ids:user'..msg.chat_id)  
 end
 end
 if text and msg.Owner then 
-if Redis:get('DraGoN:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id) then 
+if Redis:get('Dragon:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id) then 
 if text and text:match("^الغاء$") then 
-Redis:del('DraGoN:'..Dragon..'id:user'..msg.chat_id)  
+Redis:del('Dragon:'..Dragon..'id:user'..msg.chat_id)  
 LuaTele.sendText(msg.chat_id,msg.id, '⌯︙تم الغاء الامر',"md",true)  
-Redis:del('DraGoN:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
+Redis:del('Dragon:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
 return false  end 
-Redis:del('DraGoN:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
+Redis:del('Dragon:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id)  
 local numadded = string.match(text, "(%d+)") 
-local iduserr = Redis:get('DraGoN:'..Dragon..'id:user'..msg.chat_id)  
+local iduserr = Redis:get('Dragon:'..Dragon..'id:user'..msg.chat_id)  
 Redis:incrby(Dragon..'Num:Message:User'..msg.chat_id..':'..iduserr,numadded)
 LuaTele.sendText(msg.chat_id,msg.id,Reply_Status(iduserr,"⌯︙تم اضافه له { "..numadded.." } من الرسائل\n•-› ✓").Reply,"md",true)  
-Redis:del('DraGoN:'..Dragon..'id:user'..msg.chat_id) 
+Redis:del('Dragon:'..Dragon..'id:user'..msg.chat_id) 
 end
 end
 --     Source Dragon     --
@@ -3278,8 +3278,8 @@ else
 User = GetInfo.result.invite_link
 end
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-local Text = '⌯︙عذࢪاَ '..DraGon..' ↫  ['..UserInfo.first_name..'](tg://user?id='..UserInfo.id..')\n⌯︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ'
+local Dragon = Dragon[math.random(#Dragon)]
+local Text = '⌯︙عذࢪاَ '..Dragon..' ↫  ['..UserInfo.first_name..'](tg://user?id='..UserInfo.id..')\n⌯︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ'
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {
 {{text=GetInfo.result.title,url=User}},
 }}
@@ -8685,12 +8685,12 @@ https.request("https://api.telegram.org/bot"..Token.."/sendPhoto?chat_id="..msg.
 end
 --     Source Dragon     --
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == '↫  السورس ⌯' then
-local url,res = https.request('https://api-dragon.tk/Bots/chmeb/chmeb.php?user='..msg.sender_id.user_id)
+local url,res = https.request('https://api-Dragon.tk/Bots/chmeb/chmeb.php?user='..msg.sender_id.user_id)
 data = JSON.decode(url)
 if data.result ~= true then
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-local text =  [[⌯︙عذࢪاَ ]]..DraGon..[[ , آنت لست مشتࢪك
+local Dragon = Dragon[math.random(#Dragon)]
+local text =  [[⌯︙عذࢪاَ ]]..Dragon..[[ , آنت لست مشتࢪك
 ]]..data.Ch_Member.info..[[
 
 ꔹꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹꔹ
@@ -8702,13 +8702,13 @@ return false
 end
 local Text =[[
 ⦑ Welcome to Source ⦒
- ⦑ SOURCE DRAGON ⦒ 
+ ⦑ SOURCE Dragon ⦒ 
 ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ 
 ⌯︙[Source Channel](t.me/SrcDrg)
 ⌯︙[Source Update ](t.me/FIDRG) 
 ⌯︙[Source developer](t.me/s00f4) 
 ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ 
-𓂅 . [TWS DRAGON](t.me/s0drgbot) 
+𓂅 . [TWS Dragon](t.me/s0drgbot) 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11516,10 +11516,10 @@ if Redis:sismember(Dragon.."SOFI:Owner:"..msg.chat_id,Message_Reply.sender_id.us
 LuaTele.sendText(msg.chat_id,msg.id, 'دي لڪك تريد اهينن تاج راسڪك؟😏🖕🏿', 'md',true)
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","دقـيقهۂَ","لـححضهۂ","هسههہ","هَـسۿ ، ثوانيي"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md',true) 
-local DraGoN = { "لڪك جرجف "..name.." احترم اسيادكك لا اكتلڪك وازربب على كبركك،💩🖐🏿","هشش لڪك فاشل "..name.." لتضل تمسلت لا اخربط تضاريس وجهك جنه ابط عبده، 😖👌🏿","حبيبي "..name.." راح احاول احترمكك هالمره بلكي تبطل حيونه، 🤔🔪","دمشي لك "..name.." ينبوع الفشل مو زين ملفيك ونحجي وياك هي منبوذ 😏🖕🏿","ها الغليض التفس ابو راس المربع "..name.." متعلملك جم حجايه وجاي تطكطكهن علينه دبطل😒🔪",}
-LuaTele.sendText(msg.chat_id,msg.reply_to_message_id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","دقـيقهۂَ","لـححضهۂ","هسههہ","هَـسۿ ، ثوانيي"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md',true) 
+local Dragon = { "لڪك جرجف "..name.." احترم اسيادكك لا اكتلڪك وازربب على كبركك،💩🖐🏿","هشش لڪك فاشل "..name.." لتضل تمسلت لا اخربط تضاريس وجهك جنه ابط عبده، 😖👌🏿","حبيبي "..name.." راح احاول احترمكك هالمره بلكي تبطل حيونه، 🤔🔪","دمشي لك "..name.." ينبوع الفشل مو زين ملفيك ونحجي وياك هي منبوذ 😏🖕🏿","ها الغليض التفس ابو راس المربع "..name.." متعلملك جم حجايه وجاي تطكطكهن علينه دبطل😒🔪",}
+LuaTele.sendText(msg.chat_id,msg.reply_to_message_id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 else  
 LuaTele.sendText(msg.chat_id,msg.id, '⌯︙العضو غير موجود في المجموعه', 'md',true) 
 end 
@@ -11550,10 +11550,10 @@ if Redis:sismember(Dragon.."SOFI:Owner:"..msg.chat_id,UserId_Info.id) then
 LuaTele.sendText(msg.chat_id,msg.id, 'دي لڪك تريد اهينن تاج راسڪك؟😏🖕🏿', 'md',true)
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","دقـيقهۂَ","لـححضهۂ","هسههہ","هَـسۿ ، ثوانيي"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md',true) 
-local DraGoN = { "لڪك جرجف "..name.." احترم اسيادكك لا اكتلڪك وازربب على كبركك،💩🖐🏿","هشش لڪك فاشل "..name.." لتضل تمسلت لا اخربط تضاريس وجهك جنه ابط عبده، 😖👌🏿","حبيبي "..name.." راح احاول احترمكك هالمره بلكي تبطل حيونه، 🤔🔪","دمشي لك "..name.." ينبوع الفشل مو زين ملفيك ونحجي وياك هي منبوذ 😏🖕🏿","ها الغليض التفس ابو راس المربع "..name.." متعلملك جم حجايه وجاي تطكطكهن علينه دبطل😒🔪",}
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","دقـيقهۂَ","لـححضهۂ","هسههہ","هَـسۿ ، ثوانيي"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md',true) 
+local Dragon = { "لڪك جرجف "..name.." احترم اسيادكك لا اكتلڪك وازربب على كبركك،💩🖐🏿","هشش لڪك فاشل "..name.." لتضل تمسلت لا اخربط تضاريس وجهك جنه ابط عبده، 😖👌🏿","حبيبي "..name.." راح احاول احترمكك هالمره بلكي تبطل حيونه، 🤔🔪","دمشي لك "..name.." ينبوع الفشل مو زين ملفيك ونحجي وياك هي منبوذ 😏🖕🏿","ها الغليض التفس ابو راس المربع "..name.." متعلملك جم حجايه وجاي تطكطكهن علينه دبطل😒🔪",}
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 else  
 LuaTele.sendText(msg.chat_id,msg.id, '⌯︙العضو غير موجود في المجموعه', 'md',true) 
 end 
@@ -11583,10 +11583,10 @@ if Redis:sismember(Dragon.."SOFI:Owner:"..msg.chat_id,UserInfo.id) then
 LuaTele.sendText(msg.chat_id,msg.id, 'دي لڪك تريد اهينن تاج راسڪك؟😏🖕🏿', 'md',true)
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","دقـيقهۂَ","لـححضهۂ","هسههہ","هَـسۿ ، ثوانيي"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md',true) 
-local DraGoN = { "لڪك جرجف "..name.." احترم اسيادكك لا اكتلڪك وازربب على كبركك،💩🖐🏿","هشش لڪك فاشل "..name.." لتضل تمسلت لا اخربط تضاريس وجهك جنه ابط عبده، 😖👌🏿","حبيبي "..name.." راح احاول احترمكك هالمره بلكي تبطل حيونه، 🤔🔪","دمشي لك "..name.." ينبوع الفشل مو زين ملفيك ونحجي وياك هي منبوذ 😏🖕🏿","ها الغليض التفس ابو راس المربع "..name.." متعلملك جم حجايه وجاي تطكطكهن علينه دبطل😒🔪",}
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","دقـيقهۂَ","لـححضهۂ","هسههہ","هَـسۿ ، ثوانيي"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md',true) 
+local Dragon = { "لڪك جرجف "..name.." احترم اسيادكك لا اكتلڪك وازربب على كبركك،💩🖐🏿","هشش لڪك فاشل "..name.." لتضل تمسلت لا اخربط تضاريس وجهك جنه ابط عبده، 😖👌🏿","حبيبي "..name.." راح احاول احترمكك هالمره بلكي تبطل حيونه، 🤔🔪","دمشي لك "..name.." ينبوع الفشل مو زين ملفيك ونحجي وياك هي منبوذ 😏🖕🏿","ها الغليض التفس ابو راس المربع "..name.." متعلملك جم حجايه وجاي تطكطكهن علينه دبطل😒🔪",}
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 else  
 LuaTele.sendText(msg.chat_id,msg.id, '⌯︙العضو غير موجود في المجموعه', 'md',true) 
 end 
@@ -11611,10 +11611,10 @@ if tonumber(Message_Reply.sender_id.user_id) == tonumber(Sudo_Id) then
 LuaTele.sendText(msg.chat_id,msg.reply_to_message_id, 'مواححح احلاا بوسةة المطوريي😻🔥💗', 'html')
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","وفـبسہ🤤","؏ـمـريـہٰ تدلل","هسههہ ابوسس","هَـسۿ ، פـياتيہ"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
-local DraGoN = {"مواححح "..name.." افيش عافيههه😍🔥💗","امممووااهحح "..name.." شهلعسل🥺🍯💘","مواححح،"..name.."ءوفف اذوب🤤💗"} 
-LuaTele.sendText(msg.chat_id,msg.reply_to_message_id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","وفـبسہ🤤","؏ـمـريـہٰ تدلل","هسههہ ابوسس","هَـسۿ ، פـياتيہ"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
+local Dragon = {"مواححح "..name.." افيش عافيههه😍🔥💗","امممووااهحح "..name.." شهلعسل🥺🍯💘","مواححح،"..name.."ءوفف اذوب🤤💗"} 
+LuaTele.sendText(msg.chat_id,msg.reply_to_message_id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 end 
 if text and (text:match('^بوسه (%d+)$') or text:match('^بوسة (%d+)$') or text:match('^بوسها (%d+)$') or text:match('^مصه (%d+)$') or text:match('^مصها (%d+)$') or text:match('^مصة (%d+)$')) and ChCheck(msg) then
 local UserId = (text:match('^بوسه (%d+)$') or text:match('^بوسة (%d+)$') or text:match('^بوسها (%d+)$') or text:match('^مصه (%d+)$') or text:match('^مصها (%d+)$') or text:match('^مصة (%d+)$'))
@@ -11632,10 +11632,10 @@ if tonumber(UserId) == tonumber(Sudo_Id) then
 LuaTele.sendText(msg.chat_id,msg.id, 'مواححح احلاا بوسةة المطوريي😻🔥💗', 'html')
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","وفـبسہ🤤","؏ـمـريـہٰ تدلل","هسههہ ابوسس","هَـسۿ ، פـياتيہ"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
-local DraGoN = {"مواححح "..name.." افيش عافيههه😍🔥💗","امممووااهحح "..name.." شهلعسل🥺🍯💘","مواححح،"..name.."ءوفف اذوب🤤💗"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","وفـبسہ🤤","؏ـمـريـہٰ تدلل","هسههہ ابوسس","هَـسۿ ، פـياتيہ"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
+local Dragon = {"مواححح "..name.." افيش عافيههه😍🔥💗","امممووااهحح "..name.." شهلعسل🥺🍯💘","مواححح،"..name.."ءوفف اذوب🤤💗"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 end 
 if text and (text:match('^بوسه @(%S+)$') or text:match('^بوسة @(%S+)$') or text:match('^بوسها @(%S+)$') or text:match('^مصه @(%S+)$') or text:match('^مصها @(%S+)$') or text:match('^مصة @(%S+)$')) and ChCheck(msg) then
 local UserName = (text:match('^بوسه @(%S+)$') or text:match('^بوسة @(%S+)$') or text:match('^بوسها @(%S+)$') or text:match('^مصه @(%S+)$') or text:match('^مصها @(%S+)$') or text:match('^مصة @(%S+)$'))
@@ -11654,10 +11654,10 @@ if tonumber(UserId_Info.id) == tonumber(Sudo_Id) then
 LuaTele.sendText(msg.chat_id,msg.id, 'مواححح احلاا بوسةة المطوريي😻🔥💗', 'html')
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","وفـبسہ🤤","؏ـمـريـہٰ تدلل","هسههہ ابوسس","هَـسۿ ، פـياتيہ"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
-local DraGoN = {"مواححح "..name.." افيش عافيههه😍🔥💗","امممووااهحح "..name.." شهلعسل🥺🍯💘","مواححح،"..name.."ءوفف اذوب🤤💗"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","وفـبسہ🤤","؏ـمـريـہٰ تدلل","هسههہ ابوسس","هَـسۿ ، פـياتيہ"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
+local Dragon = {"مواححح "..name.." افيش عافيههه😍🔥💗","امممووااهحح "..name.." شهلعسل🥺🍯💘","مواححح،"..name.."ءوفف اذوب🤤💗"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 end 
 --     Source Dragon     --
 if text == ("صيحه") or text == ("صيحة") or text == ("صيحها") or text == ("صيحهه") or text == ("صيح") and msg.reply_to_message_id ~= 0 and ChCheck(msg) then
@@ -11679,10 +11679,10 @@ if tonumber(Message_Reply.sender_id.user_id) == tonumber(Sudo_Id) then
 LuaTele.sendText(msg.chat_id,msg.reply_to_message_id, 'تعال مطوريي محتاجيكك🏃🏻‍♂️♥️', 'html')
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","؏ـمـريـہٰ تدلل","شسالفهہ هسههہ اصيحه","هَـسۿ ، פـياتيہ"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
-local DraGoN = {"تتعال "..name.." ححب محتاجيك🙂🍭","تعال يولل "..name.." استاذكك ايريدككك😒🔪","يمعوود "..name.." تعاال يريدوكك🤕♥️","تعال "..name.." لڪك ديصيحوك😐🖤"} 
-LuaTele.sendText(msg.chat_id,msg.reply_to_message_id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","؏ـمـريـہٰ تدلل","شسالفهہ هسههہ اصيحه","هَـسۿ ، פـياتيہ"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
+local Dragon = {"تتعال "..name.." ححب محتاجيك🙂🍭","تعال يولل "..name.." استاذكك ايريدككك😒🔪","يمعوود "..name.." تعاال يريدوكك🤕♥️","تعال "..name.." لڪك ديصيحوك😐🖤"} 
+LuaTele.sendText(msg.chat_id,msg.reply_to_message_id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 end 
 if text and (text:match('^صيحه (%d+)$') or text:match('^صيحة (%d+)$') or text:match('^صيحها (%d+)$') or text:match('^صيح (%d+)$') or text:match('^صيحهه (%d+)$')) and ChCheck(msg) then
 local UserId = (text:match('^صيحه (%d+)$') or text:match('^صيحة (%d+)$') or text:match('^صيحها (%d+)$') or text:match('^صيح (%d+)$') or text:match('^صيحهه (%d+)$'))
@@ -11700,10 +11700,10 @@ if tonumber(UserInfo.id) == tonumber(Sudo_Id) then
 LuaTele.sendText(msg.chat_id,msg.id, 'تعال مطوريي محتاجيكك🏃🏻‍♂️♥️', 'html')
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","؏ـمـريـہٰ تدلل","شسالفهہ هسههہ اصيحه","هَـسۿ ، פـياتيہ"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
-local DraGoN = {"تتعال "..name.." ححب محتاجيك🙂🍭","تعال يولل "..name.." استاذكك ايريدككك😒🔪","يمعوود "..name.." تعاال يريدوكك🤕♥️","تعال "..name.." لڪك ديصيحوك😐🖤"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","؏ـمـريـہٰ تدلل","شسالفهہ هسههہ اصيحه","هَـسۿ ، פـياتيہ"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
+local Dragon = {"تتعال "..name.." ححب محتاجيك🙂🍭","تعال يولل "..name.." استاذكك ايريدككك😒🔪","يمعوود "..name.." تعاال يريدوكك🤕♥️","تعال "..name.." لڪك ديصيحوك😐🖤"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
 end 
 if text and (text:match('^صيحه @(%S+)$') or text:match('^صيحة @(%S+)$') or text:match('^صيحها @(%S+)$') or text:match('^صيح @(%S+)$') or text:match('^صيحهه @(%S+)$')) and ChCheck(msg) then
 local UserName = (text:match('^صيحه @(%S+)$') or text:match('^صيحة @(%S+)$') or text:match('^صيحها @(%S+)$') or text:match('^صيح @(%S+)$') or text:match('^صيحهه @(%S+)$'))
@@ -11723,10 +11723,10 @@ if tonumber(UserInfo.id) == tonumber(Sudo_Id) then
 LuaTele.sendText(msg.chat_id,nil, 'تعال '..namesudo..' محتاجيكك🏃🏻‍♂️♥️', 'md')
 return false
 end 
-local DraGoN = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","؏ـمـريـہٰ تدلل","شسالفهہ هسههہ اصيحه","هَـسۿ ، פـياتيہ"} 
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
-local DraGoN = {"تتعال "..name.." ححب محتاجيك🙂🍭","تعال يولل "..name.." استاذكك ايريدككك😒🔪","يمعوود "..name.." تعاال يريدوكك🤕♥️","تعال "..name.." لڪك ديصيحوك😐🖤"} 
-LuaTele.sendText(msg.chat_id,nil,''..DraGoN[math.random(#DraGoN)]..'', 'md') 
+local Dragon = {"صاࢪࢪ ستاذيي 🏃🏻‍♂️♥️","تأمࢪ آمࢪ","؏ـمـريـہٰ تدلل","شسالفهہ هسههہ اصيحه","هَـسۿ ، פـياتيہ"} 
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'', 'md') 
+local Dragon = {"تتعال "..name.." ححب محتاجيك🙂🍭","تعال يولل "..name.." استاذكك ايريدككك😒🔪","يمعوود "..name.." تعاال يريدوكك🤕♥️","تعال "..name.." لڪك ديصيحوك😐🖤"} 
+LuaTele.sendText(msg.chat_id,nil,''..Dragon[math.random(#Dragon)]..'', 'md') 
 end 
 --     Source Dragon     --
 
@@ -12442,8 +12442,8 @@ end
 end
 if text and not Redis:get(Dragon..'SOFI:Add:GpRedod'..msg.sender_id.user_id..msg.chat_id) then
 if Redis:sismember(Dragon..'SOFI:Manager:GpRedod'..msg.chat_id,text) then
-local DraGoN =  Redis:smembers(Dragon..'SOFI:Text:GpTexts'..text..msg.chat_id)
-LuaTele.sendText(msg.chat_id,msg.id, '['..DraGoN[math.random(#DraGoN)]..']' ,"md",true)    
+local Dragon =  Redis:smembers(Dragon..'SOFI:Text:GpTexts'..text..msg.chat_id)
+LuaTele.sendText(msg.chat_id,msg.id, '['..Dragon[math.random(#Dragon)]..']' ,"md",true)    
 end
 end
 --     Source Dragon     --
@@ -14508,27 +14508,27 @@ end
 --     Source Dragon     -- 
 if text == (Redis:get(Dragon.."Name:Bot") or "دراكون") then
 local NamesBot = (Redis:get(Dragon.."Name:Bot") or "دراكون")
-local DRagon = {"❤️‍🔥","🏌🏼","🦋","🍧","🥲","🍇","🥲♥️","♥️","🍧🍇",""} 
-local DraGon = DRagon[math.random(#DRagon)]
+local Dragon = {"❤️‍🔥","🏌🏼","🦋","🍧","🥲","🍇","🥲♥️","♥️","🍧🍇",""} 
+local Dragon = Dragon[math.random(#Dragon)]
 local NameBots = {
-    "آسميہ ألقمـيل "..NamesBot.." "..DraGon.."",
-    'ڪول - حبيبي اﻧـييہ '..NamesBot..' '..DraGon..'',
-    "هلآآ ؏ـمـريـہٰ. وياڪك "..NamesBot.." "..DraGon..""
+    "آسميہ ألقمـيل "..NamesBot.." "..Dragon.."",
+    'ڪول - حبيبي اﻧـييہ '..NamesBot..' '..Dragon..'',
+    "هلآآ ؏ـمـريـہٰ. وياڪك "..NamesBot.." "..Dragon..""
 } 
 return LuaTele.sendText(msg.chat_id,msg.id, NameBots[math.random(#NameBots)],"md",true)  
 end
 if text == "بوت" then
 local NamesBot = (Redis:get(Dragon.."Name:Bot") or "دراكون")
-local DRagon = {"❤️‍🔥","🏌🏼","🦋","🍧","🥲","🍇","🥲♥️","♥️","🍧🍇",""} 
-local DraGon = DRagon[math.random(#DRagon)]
+local Dragon = {"❤️‍🔥","🏌🏼","🦋","🍧","🥲","🍇","🥲♥️","♥️","🍧🍇",""} 
+local Dragon = Dragon[math.random(#Dragon)]
 local BotName = {
-    "لتڪول بۅٛت اسَميہ "..NamesBot.." "..DraGon.."",
-    "اسميہ ألقمـيل "..NamesBot.." "..DraGon.."",
-    "• عنديہ آسم ترۿ "..DraGon.."",
-    "صـيحوليہ "..NamesBot.." ڪـآآفي بۅٛت "..DraGon.."",
-    "أنتهہ ألبۅٛت ݪڪك "..DraGon.."",
-    "شتࢪيَد ضَݪـ؏ـييہ "..DraGon.."",
-    "ههآآه يـڕﯢحٰ "..NamesBot.." "..DraGon.."",
+    "لتڪول بۅٛت اسَميہ "..NamesBot.." "..Dragon.."",
+    "اسميہ ألقمـيل "..NamesBot.." "..Dragon.."",
+    "• عنديہ آسم ترۿ "..Dragon.."",
+    "صـيحوليہ "..NamesBot.." ڪـآآفي بۅٛت "..Dragon.."",
+    "أنتهہ ألبۅٛت ݪڪك "..Dragon.."",
+    "شتࢪيَد ضَݪـ؏ـييہ "..Dragon.."",
+    "ههآآه يـڕﯢحٰ "..NamesBot.." "..Dragon.."",
 } 
 return LuaTele.sendText(msg.chat_id,msg.id,BotName[math.random(#BotName)],"md",true)   
 end
@@ -14559,135 +14559,135 @@ end
 return LuaTele.sendText(msg.chat_id,msg.id, rd, 'html',true)
 end
 if text == 'دي' or text == 'ديي' or text == 'دي بابه' then 
-DraGoN =  "آخلُِآقٌڪڪ لُِڪڪ 𖠙 😒🔪"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "آخلُِآقٌڪڪ لُِڪڪ 𖠙 😒🔪"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'سلام' or text == 'سلام عليكم' or text == 'السلام عليكم' or text == 'سلامم عليكم' or text == 'السلامم عليكم' or text == 'سلامم' or text == 'السلام على من رد السلام' then
-local DraGoN = {"و ؏ـليڪم ؏ـمࢪي 🤍","و ؏ـليڪم السلام ❤️‍🔥","و ؏ـليڪم حـَبـيبيَ ♥️","و ؏ـليڪم السلام يَابُةه 💖"," آطلـقْ سـلامَ 😔🍇","و ؏ـليڪم السلام و رحمه الله 🤍"}
-LuaTele.sendText(msg.chat_id,msg.id,''..DraGoN[math.random(#DraGoN)]..'',"md",true)  
+local Dragon = {"و ؏ـليڪم ؏ـمࢪي 🤍","و ؏ـليڪم السلام ❤️‍🔥","و ؏ـليڪم حـَبـيبيَ ♥️","و ؏ـليڪم السلام يَابُةه 💖"," آطلـقْ سـلامَ 😔🍇","و ؏ـليڪم السلام و رحمه الله 🤍"}
+LuaTele.sendText(msg.chat_id,msg.id,''..Dragon[math.random(#Dragon)]..'',"md",true)  
 return false
 end 
 if text == '😭💔' or text == '😭😭' or text == '😭😭😭' or text == '😿💔' or text == '😭😭😭' or text == '😭😭😭😭' then 
-DraGoN =  "مآآعٍآشُ آلُِي يزعٍلُِڪڪ 𖠙 😏♥️"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "مآآعٍآشُ آلُِي يزعٍلُِڪڪ 𖠙 😏♥️"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == '🌚💔' or text == '💔🌚' or text == '🚶‍♂💔' or text == '💔' or text == '😔💔' or text == '🚶‍♀💔' or text == '😭' then 
-DraGoN =  "شبّيي اﻟ̣̣פﻟ̣̣و 𖠙 😿💔"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "شبّيي اﻟ̣̣פﻟ̣̣و 𖠙 😿💔"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'باي' or text == 'بااي' or text == 'اروح' or text == 'اروح احسن' or text == 'اولي احسن' or text == 'راح اروح' or text == 'باي انام' then 
-DraGoN =  "أُرٌجُعُ عٍيدِهآآ مٍوو تنِْسةه 𖠙 🤤♥️"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "أُرٌجُعُ عٍيدِهآآ مٍوو تنِْسةه 𖠙 🤤♥️"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'هلو' or text == 'هلا' or text == 'هلاو' or text == 'ههلا' or text == 'ههلاو' or text == 'هلاو' or text == 'هاي' or text == 'ههاي' then
-local DraGoN = {"ۿهـلاٱ ؏ـمࢪي 🤍","هٓهَـلاٱ گ̲ـلبي❤️‍🔥","ۿـلاٱ حـَبـيبيَ ♥️","ڪل الۿـلاآ يَابُةه 💖"," آطلـق ۿهَـلآو ❤️‍🩹🧸","هُهَـلاٱ يـٰٰرﯞحـًٛيہ🙊💞","ۿـلاٱ بَلحـبَ ﻣﻣـَاُلتي 😔💖"}
-DraGoN2 = math.random(#DraGoN) 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN[DraGoN2],"md",true)  
+local Dragon = {"ۿهـلاٱ ؏ـمࢪي 🤍","هٓهَـلاٱ گ̲ـلبي❤️‍🔥","ۿـلاٱ حـَبـيبيَ ♥️","ڪل الۿـلاآ يَابُةه 💖"," آطلـق ۿهَـلآو ❤️‍🩹🧸","هُهَـلاٱ يـٰٰرﯞحـًٛيہ🙊💞","ۿـلاٱ بَلحـبَ ﻣﻣـَاُلتي 😔💖"}
+Dragon2 = math.random(#Dragon) 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon[Dragon2],"md",true)  
 return false
 end
 if text == 'شونك' or text == 'شونج' or text == 'شلونك' or text == 'شلونج' or text == 'شونكم' or text == 'شلونكم' or text == 'شلخبار' or text == 'شلون الاخبار' or text == 'شخبارك' then 
-local DraGoN = {"ماﺷ͠ يةھَہّ يﻋ̝̚مريي ۅاﻧﺗ̲ت 𖠙 🤤♥️" ,"الحۡمۘدللهۂَ ٰوانۨہتت 𖠙 🤤♥️","تمۘامۘ عمۘري ٰوانۨہتت 𖠙 🤤♥️"} 
-DraGoN2 = math.random(#DraGoN) 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN[DraGoN2] ,"md",true)  
+local Dragon = {"ماﺷ͠ يةھَہّ يﻋ̝̚مريي ۅاﻧﺗ̲ت 𖠙 🤤♥️" ,"الحۡمۘدللهۂَ ٰوانۨہتت 𖠙 🤤♥️","تمۘامۘ عمۘري ٰوانۨہتت 𖠙 🤤♥️"} 
+Dragon2 = math.random(#Dragon) 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon[Dragon2] ,"md",true)  
 return false
 end
 if text == 'وينك' or text == 'وينج' then
-DraGoN =  "مْوٌجہوٌدِ يہمْگُ يحلوُ 𖠙 😉♥️"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "مْوٌجہوٌدِ يہمْگُ يحلوُ 𖠙 😉♥️"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'بوت عواي' or text == 'بوت زربه' or text == 'البوت عاوي' or text == 'البوت زربه' then
-DraGoN =  "اطردكك تجرب ؟ ، 😕🔪"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "اطردكك تجرب ؟ ، 😕🔪"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'نايمين' or text == 'ميتين' then
-DraGoN =  "طُآمسين ووعٍيوونڪ 𖠙 😪🖤ۦ"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "طُآمسين ووعٍيوونڪ 𖠙 😪🖤ۦ"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'هلوباي' or text == 'هلو باي' then  
-DraGoN =  "شحۡسۜيت مۘنۨہ هيجۚ ּكتبت ؟ 🌝♥️"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "شحۡسۜيت مۘنۨہ هيجۚ ּكتبت ؟ 🌝♥️"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'اكلك' or text == 'اكلج' or text == 'اكلكم' then 
-DraGoN =  "ڪوولُِ مآڪوولُِ لُِآحٍدِ 𖠙 😉♥️"
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "ڪوولُِ مآڪوولُِ لُِآحٍدِ 𖠙 😉♥️"
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == 'فرخ' or text == 'فرخه' then
-DraGoN =  "ٰوينۨہهۂَ خۡل احۡصرهۂَ 𖠙 😹♥️" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN,"md",true)  
+Dragon =  "ٰوينۨہهۂَ خۡل احۡصرهۂَ 𖠙 😹♥️" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon,"md",true)  
 return false
 end
 if text == 'سورس صوفي' or text == 'سورس دراكون' or text == 'سورس دراكون' or text == 'سورس زربه' or text == 'السورس زربه' or text == 'سورس عاوي' or text == 'السورس عاوي' then 
-DraGoN =  "لُِآ سوورس خآلُِتڪ دِي لُِڪ 𖠙 😒🔪" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "لُِآ سوورس خآلُِتڪ دِي لُِڪ 𖠙 😒🔪" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == 'بوسني' or text == 'بوسيني' then 
-DraGoN =  "-محِااﭑةه ، ݪسِقق  🥺♥️♥️؟." 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "-محِااﭑةه ، ݪسِقق  🥺♥️♥️؟." 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "صباحوا" or text == "صباح الخير" or text == "صباحو" then
-DraGoN =  "صَباحيّ ، ﭑنتةه🥺💞💞." 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "صَباحيّ ، ﭑنتةه🥺💞💞." 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "اكو بوت" or text == "اكو بوت؟" or text == "عدكم بوت" or text == "عندكم بوت" or text == "عدكم بوت؟" or text == "عندكم بوت؟" or text == "تردون بوت" or text == "تردون بوت؟" or text == "وين البوت" or text == "وين البوت؟" then
-DraGoN =  "-موَ بعَينڪۃ ، شنيَ ، 🌝🌝." 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "-موَ بعَينڪۃ ، شنيَ ، 🌝🌝." 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "جاو" or text == "ججاو" then
-DraGoN =  "- ۅَتعۅفنيَ ؟." 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "- ۅَتعۅفنيَ ؟." 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "تف" or text == "تفف" then
-DraGoN =  "چا غير مَي ، ۅࢪدَ ،" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "چا غير مَي ، ۅࢪدَ ،" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "تحبني" or text == "تحبني؟" or text == "تحبني؟؟" then
-DraGoN =  "شعندِيّ ، غيࢪكَ🥵♥️♥️♥️" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "شعندِيّ ، غيࢪكَ🥵♥️♥️♥️" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "جوعان" or text == "جوعانه" then
-DraGoN =  "ټعاَل ﭑڪلنيَ ، 🌝." 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "ټعاَل ﭑڪلنيَ ، 🌝." 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "ههه" or text == "هههه" or text == "ههههه" or text == "هههههه" or text == "ههههههه" then
-DraGoN =  "جَعل ، محدَ غيݛكَ ، يضحكَ  ، ♥️♥️" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "جَعل ، محدَ غيݛكَ ، يضحكَ  ، ♥️♥️" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "وينكم" then
-DraGoN =  "حَيݪيٰ ، 🥺💞" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "حَيݪيٰ ، 🥺💞" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "احبك" or text == "حبك" then
-DraGoN =  "ﭑنيۿمَ ، قسمَہ، 🥺💞" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "ﭑنيۿمَ ، قسمَہ، 🥺💞" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == "بوت ملطلط" then
-DraGoN =  "ربي صبرني 😞🌾" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "ربي صبرني 😞🌾" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 if text == 'وينك' or text == 'وينج' then
-DraGoN =  "مْوٌجہوٌدِ يہمْگُ يحلوُ  😉♥️" 
-LuaTele.sendText(msg.chat_id,msg.id,DraGoN, "md",true)  
+Dragon =  "مْوٌجہوٌدِ يہمْگُ يحلوُ  😉♥️" 
+LuaTele.sendText(msg.chat_id,msg.id,Dragon, "md",true)  
 return false
 end
 
@@ -14774,8 +14774,8 @@ if text == "سمايلات" or text == "سمايل" then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","🥐","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","🎫","🎗","🏵","🎖","🏆","🥌","🛷","🚗","🚌","🏎","🚓","??","🚚","🚛","🚜","⚔","🛡","🔮","🌡","💣","⌯︙","📍","📓","📗","📂","📅","📪","📫","⌯︙","📭","⏰","📺","🎚","☎️","📡"}
 SM = Random[math.random(#Random)]
@@ -14787,8 +14787,8 @@ if text == "كت" and ChCheck(msg) or text == "تويت" and ChCheck(msg) or tex
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 local texting = {
 'آخر مرة زرت مدينة الملاهي؟','آخر مرة أكلت أكلتك المفضّلة؟','الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل','آخر شيء ضاع منك؟','كلمة أخيرة لشاغل البال؟','طريقتك المعتادة في التخلّص من الطاقة السلبية؟','شهر من أشهر العام له ذكرى جميلة معك؟','كلمة غريبة من لهجتك ومعناها؟🤓','‏- شيء سمعته عالق في ذهنك هاليومين؟','متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟','‏- أبرز صفة حسنة في صديقك المقرب؟','هل تشعر أن هنالك مَن يُحبك؟','اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟','أجمل شيء حصل معك خلال هاليوم؟','صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔','كلمة لشخص غالي اشتقت إليه؟💕','آخر خبر سعيد، متى وصلك؟','أنا آسف على ....؟','أوصف نفسك بكلمة؟','صريح، مشتاق؟','‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟','‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭','‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤','‏- تخيّل شيء قد يحدث في المستقبل؟','‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚','شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟','| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟.','كم مره تسبح باليوم','نسبة النعاس عندك حاليًا؟','لو فقط مسموح شخص واحد تتابعه فالسناب مين بيكون ؟','يهمك ملابسك تكون ماركة ؟','وش الشيء الي تطلع حرتك فيه و زعلت ؟','عندك أخوان او خوات من الرضاعة؟','عندك معجبين ولا محد درا عنك؟','أصعب صفة قد تتواجد في الرجل .؟','كم المده الي تخليك توقع بحب الشخص؟.','تحس انك مستعد للقاء الله ولا باقي.؟','متصالح مع نفسك؟.','يسكر على أصبعك الباب ولا تعض لسانك  بالغلط؟!','عندك غمازات؟.','‏ألوانك المفضّلة؟','ردة فعلك لما تنظلم من شخص ؟','وش الحب بنظرك؟','أكثر شيء تقدره في الصداقات؟','‏لوخيروك ⁞ الاكل لو النت ؟!','عاجبك وجودك في التلي ولا تتمنى تحذفة.؟','افضل هديه ممكن تناسبك؟','شعورك الحالي في جملة؟','أنا حزين جداً أجعلني أبتسم.؟','بماذا يتعافى المرء؟','تاك لشخص نفسيه؟','شاركنا بيت شعري حزين على ذوقك.؟','اغنية عندك بيها ذكريات؟','اشياء تفتخر انك م سويتها ؟','الصراحة وقاحة ولا صدق تعامل.؟','ايهم اصدق نظرة العين او نبرة الصوت ؟','‏قلّة المال لدى الرجل في هذا الزمن يعتبرها العديد كانها عيب، مع أم ضد؟','إيهما تُفضل حُب ناجح أم صداقة دائمة.؟','على نياتكُم تُرزقون تاك لشخص ينطبق علية هذا الشيء.؟','اكثر كلمة ترفع ضغطك ؟','من أصحاب الماضي والحنين ولا الصفحات المطوية.؟','من أصحاب النسيان او التجاوز رغم الذكرى.؟','غزل بلهجتك ؟','مصروفك كم؟.','للحتيت ⁞ ماذا تفضّلين أن تكون مهنة شريك حياتك المستقبلي.؟','يومك ضاع على؟','ما الذي اسعدك اليوم .؟','كيف تتعامل مع الشخص المُتطفل ( الفضولي ) ؟','أصعب صفة قد تتواجد في المرأة.؟','مع أو ضد لو كان خيراً لبقئ.؟','نصيحة لكل شخص يذكر أحد بغيابة بالسوء.؟','كل شيء يهون الا ؟','هل أنت من النوع الذي يواجه المشاكل أو من النوع الذي يهرب ؟','كلمه لشخص خانك!؟.','تحب تحتفظ بالذكريات ؟','شاركنا أقوى بيت شِعر من تأليفك؟','‏اسرع شيء يحسّن من مزاجك؟','كلمتك التسليكيه ؟','كم ساعات نومك؟.','عندك فوبيا او خوف شديد من شيء معين ؟','موهبة تفوز بمدح الناس لك.؟','قدوتك من الأجيال السابقة؟','شخص تتمنئ له الموت؟.','عادةً تُحب النقاش الطويل أم تحب الاختصار؟','تاك لشخص نيته زباله🌚؟','صوتك حلو ؟ .','كلمتين تكررها دايم؟!','افضل روايه قريتيها؟.','متى حدث التغيير الكبير والملحوظ في شخصيتك؟','أكثر اكلهه تحبها؟.','‏كلما ازدادت ثقافة المرء ازداد بؤسه','تتفق.؟','اغبى كذبه صدقتها بطفولتك؟.','كم المده الي تخليك توقع بحب الشخص؟.','تسامح شخص وجع قلبك ؟.','ردة فعلك لما تنظلم من شخص ؟','شيء يعدل نفسيتك بثواني.؟','‏تتوقع الإنسان يحس بقرب موته؟','وقت حزنك تلجأ لمن يخفف عنك.؟','‏أكثر شيء شخصي ضاع منك؟','تزعلك الدنيا ويرضيك ؟','ما الذي يشغل بالك في الفترة الحالية؟','نهارك يصير أجمل بوجود ..؟','حسيت انك ظلمت شخص.؟','صفة يطلقها عليك من حولك بكثرة؟','‏يوم لا يمكنك نسيانه؟','أكثر اكلهه تحبها؟.','اخر كلمة قالها لك حبيبك؟.','من الشخص الاقرب لقلبك؟.','كم المده الي تخليك توقع بحب الشخص؟.','ماهي الهدية التي تتمنى أن تنتظرك يومًا أمام باب منزلك؟','‏اسم او تاك لشخص لا ترتاح في يومك إلا إذا حاجيته؟','صديق أمك ولا أبوك. ؟','لماذا الأشياء التي نريدها بشغف تأتي متأخرة؟','‏تقبل بالعودة لشخص كسر قلبك مرتين؟','افضل هديه ممكن تناسبك؟','كلمة غريبة ومعناها؟','اذا اشتقت تكابر ولا تبادر ؟.','بامكانك تنزع شعور من قلبك للابد ، ايش هو؟.','لو بتغير اسمك ايش بيكون الجديد ؟','‏شخصية لا تستطيع تقبلها؟','ما هي طريقتك في الحصول على الراحة النفسية؟','‏ايموجي يوصف مزاجك حاليًا بدقة؟','تاريخ ميلادك؟','كيف تحد الدولة من الفقر المُتزايد.؟','‏شي مستحيل يتغير فيك؟','لو اخذوك لمستشفى المخابيل كيف تثبت انت صاحي؟','إيموجي يعبّر عن مزاجك الحالي؟','وقت حزنك تلجأ لمن يخفف عنك.؟','اعترف باي حاجه ؟','شاركني آخر صورة جميلة من كاميرا هاتفك.؟','متصالح مع نفسك؟.','لو عندك امنيه وبتحقق وش هي؟.','هل انت شخص مادي.؟','أخر اتصال جاك من مين ؟','تاك لصديقك المُقرب؟.','تحب العلاقات العاطفيه ولا الصداقه؟.','العين الي تستصغرك........؟','تجامل الناس ولا اللي بقلبك على لسانك؟','وقت حزنك تلجأ لمن يخفف عنك.؟','اكثر المتابعين عندك باي برنامج؟','صفه تتمناها بشريك حياتك؟.','من اصدق في الحب الولد ولا البنت؟.','يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟','كلمة لشخص بعيد؟','رحتي لعرس وأكتشفتي العريس حبيبك شنو ردة فعلك.؟','تسامح شخص وجع قلبك ؟.','احقر موقف صار لك؟.','ماذا لو كانت مشاعر البشر مرئية ؟','وين نلقى السعاده برايك؟','قد تخيلت شي في بالك وصار ؟','صفة يطلقها عليك الشخص المفضّل؟','اخر خيانه؟.','تحب تحتفظ بالذكريات ؟','لو بتغير اسمك ايش بيكون الجديد ؟','الاعتذار أخلاق ولا ضعف.؟','هل أنت من النوع الذي يواجه المشاكل أو من النوع الذي يهرب ؟','‏ تكره أحد من قلبك ؟','تاك لشخص وكوله اعترف لك؟','مع أو ضد لو كان خيراً لبقئ.؟','‏هل لديك شخص لا تخفي عنه شيئًا؟','اغنيه تأثر بيك؟','المطوعة والعاقلة من شلتك.؟','مواصفات امير/ة احلامك؟.','‏كلمة لصديقك البعيد؟','تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته؟','قرارتك راضي عنها ام لا ؟','تسامح شخص سبب في بكائك.؟','لو حصل واشتريت جزيرة، ماذا ستختار اسمًا لها.؟','اغنيتك المفضلة؟.','شاركنا اقوئ نكتة عندك.؟','ماذا لو عاد مُشتاقاً.؟','مسلسل كرتوني له ذكريات جميلة عندك؟','أخر اتصال جاك من مين ؟','حيوانك المفضل؟','اول ولد لك شنو رح تسميه ؟','سبب الرحيل.؟','قولها بلهجتك « لا أملك المال ».؟','نهارك يصير أجمل بوجود ..؟','‏لو خيروك، الزواج بمن تُحب او تاخذ مليون دولار؟','تاك لشخص سوالفه حلوه ؟','تصرف لا يُمكن أن تتحمله.؟','ماهي الاطباع فيك التي تحاول اخفائها عن الناس؟.','شيء عندك اهم من الناس؟','قد تخيلت شي في بالك وصار ؟','تمحي العشرة الطيبة عشان موقف ماعجبك أو سوء فهم.؟','جربت شعور احد يحبك بس انت متكدر تحبه؟','بنفسك تبوس شخص بهاي الحظه؟','إذا كانت الصراحة ستبعد عنك من تحب هل تمتلك الشجاعة للمصارحة ام لا .؟','أكمل الدعاء بما شئت ‏اللهم أرزقني ..؟','الصق اخر شيء نسخته .؟','‏تفضل جولة في الغابة أم جولة بحرية؟','‏تاك لشخص لديك لا تخفي عنه شي؟','كلمة غريبة ومعناها؟','‏اوقات لا تحب ان يكلمك فيها احد؟','تملك وسواس من شيء معين ؟','اشمر مقطع من اغنيه متطلع منراسك؟','هل تتأثرين بالكلام الرومانسي من الشباب؟','ما اول شيء يلفت انتباهك في الرجل؟','ماذا تفعلين اذا تعرضتِ للتحرش من قبل شخص ما..؟','اذا كنت شخصاً غني هل توافق على الزواج من فتاة فقيرة..؟','ما هو أكثر شئ لا تستطيع تحمله..؟','ما هي نقاط الضعف في شخصيتك..؟','هل توافق أن زوجتك تدفع الحساب في إحدي المطاعم وأنت موجود؟','ماذا تفعل لو أكتشفت ان زوجتك على علاقة بصديقك؟','ما هي أكثر صفة تكرهها في زوجتك..؟','اذا كان لديك فرصة للخروج مع من سوف تخرج ربعك او زوجتك..؟','ماذا تفعل عندما تري دموع زوجتك..؟','إلى أي الرجال تُريدين أن يكون انتماؤك؟','كم مرة خُدعت في أشخاصٍ، وثقتِ فيهم ثقةً عمياء؟','هل ما زال أصدقاء الطفولة أصدقاءً لك حتى الآن؟','هل ترغبين في أن يكون خطيبك وسيمًا؟','كم مرةٍ فعلت شيئًا لا ترغبين في الإفصاح عنه؟','هل استطعت أن تُحققي آمالك العلمية والعاطفية؟','أكثر شئ ندمت على فعله..؟','هل تشعرين أنك فتاة محظوظة..؟','هل علاقة الحب التي كانت في صغرك، مازالت مستمرة؟','ما هو أكثر شئ يفرحك في هذه الحياة..؟','كم مرة أردت شراء ملابس لأنها جميلة ولكنها لا تناسبك..؟','كم عدد المرات التي قمت فيها بإستبدال شئ اشتريته ولم يعجبك بعد ذلك.؟','كم مرة قمت بكسر الرجيم من أجل تناول طعامك المفضل..؟','هل تعرضت للظلم يوماً ما وعلى يد من..؟','هل كذبت على والديك من قبل..؟','هل خرجتي مع شخص تعرفتي عليه من خلال التليكرام من قبل..؟','هل لو تقدم شخص لاختك من أجل خطبتها وقامت برفضه تقبلين به..؟','لمن تقولين لا أستطيع العيش بدونك..؟','كم عدد المرات التي تعرضتِ فيها إلى أزمة نفسية وأردتِ الصراخ بأعلى صوتك..؟','ماذا تقول للبحر؟','أصعب صفة قد تتواجد في رجل؟','ما أجمل الحياة بدون ...؟','لماذا لم تتم خطبتك حتى الآن..؟','نسبة رضاك عن الأشخاص من حولك هالفترة ؟','ما السيء في هذه الحياة ؟','الفلوس او الحب ؟','أجمل شيء حصل معك خلال هذا الاسبوع ؟','سؤال ينرفزك ؟','كم في حسابك البنكي ؟','شي عندك اهم من الناس ؟','اول ولد او بنت الك شنو تسمي ؟','تفضّل النقاش الطويل او تحب الاختصار ؟','عادي تتزوج او تتزوجين من خارج العشيره ؟','كم مره حبيت ؟','تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب ؟','قلبي على قلبك مهما صار لمنو تكولها ؟','اكثر المتابعين عندك باي برنامج ؟','نسبة النعاس عندك حاليًا ؟','نسبه الندم عندك للي وثقت بيهم ؟','اول شخص تعرفت عليه بالتليكرام بعده موجود ؟','اذا فديوم شخص ضلمك شنو موقفك ؟','افضل عمر للزواج برئيك ؟','انت من النوع الي دائما ينغدر من اقرب الناس اله ؟','ماهو حيوانك المفضل ؟','تاريخ ميلادك ؟','لونك المفضل ؟','انت من النوع العاطفي والي ميكدر يكتم البداخله ؟','اذا فديوم شخص خانك ويريد يرجعلك تقبل ؟','شي بالحياه مخليك عايش لحد الان ؟','تحب النوم لو الشغل ؟','افضل مكان رحت عليه ؟','اختصر الماضي بكلمه وحده ؟','هل سبق وكنت مصر على أمر ما ومن ثم اكتشفت أنك كنت على خطأ ؟','اكثر كلمة ترفع ضغطك ؟','مع او ضد سب البنت للدفاع عن نفسها ؟','يهمك ظن الناس بيك لو لا؟','عبّر عن مودك بصوره ؟','اغلب وقتك ضايع في ؟','يوم متكدر تنساه ؟','تحس انك محظوظ بالاشخاص الي حولك ؟','تستغل وقت فراغك بشنو ؟','مع او ضد مقولة محد يدوم ل احد ؟','لو اخذوك مستشفى المجانين كيف تثبت لهم انك صاحي ؟','مغني تلاحظ أن صوته يعجب الجميع إلا أنت ؟','اخر خيانه ؟','تصرف ماتتحمله ؟','هل يمكنك الكذب والاستمرار بارتكاب الأخطاء كمحاولة منك لعدم الكشف أنك مخطئ ؟','الصق اخر شي نسخته ؟','عمرك انتقمت من أحد ؟','هل وصلك رسالة غير متوقعة من شخص وأثرت فيك ؟','‏-لو امتلكت العصا السحرية ليوم واحد ماذا ستفعل ؟','جابو طاري شخص تكره عندك تشاركهم ولا تمنعهم ؟','أمنية كنت تتمناها وحققتها ؟','هل التعود على شخص والتحدث معه بشكل يومي يعتبر نوع من أنواع الحب ؟','نسبة جمال صوتك ؟','صفة يطلقها عليك الشخص المفضل ؟','شنو هدفك بالمستقبل القريب ؟','تحب القرائه ؟','كليه تتمنى تنقبل بيها ؟',
@@ -14804,8 +14804,8 @@ if text == "صراحه" and ChCheck(msg) or text == "الصراحه" and ChCheck
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 local texting = {"صراحه  |  صوتك حلوة؟","صراحه  |  التقيت الناس مع وجوهين؟","صراحه  |  شيء وكنت تحقق اللسان؟","صراحه  |  أنا شخص ضعيف عندما؟",
 "صراحه  |  هل ترغب في إظهار حبك ومرفق لشخص أو رؤية هذا الضعف؟",
@@ -14866,8 +14866,8 @@ if text == "لو خيروك" and ChCheck(msg) or text == "خيروك" and ChChec
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 local texting = {"لو خيروك |  بين الإبحار لمدة أسبوع كامل أو السفر على متن طائرة لـ 3 أيام متواصلة؟ ",
 "لو خيروك |  بين شراء منزل صغير أو استئجار فيلا كبيرة بمبلغ معقول؟ ",
@@ -14974,8 +14974,8 @@ if text == "الاسرع" or tect == "ترتيب" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 KlamSpeed = {"سحور","سياره","استقبال","قنفذ","ايفون","بزونه","مطبخ","كرستيانو","دجاجه","مدرسه","الوان","غرفه","ثلاجه","قهوه","سفينه","دراكون","محطه","طياره","رادار","منزل","مستشفى","كهرباء","تفاحه","اخطبوط","سلمون","فرنسا","برتقاله","تفاح","مطرقه","صوفي","لعبه","شباك","باص","سمكه","ذباب","تلفاز","حاسوب","انترنت","ساحه","جسر"};
 name = KlamSpeed[math.random(#KlamSpeed)]
@@ -15026,8 +15026,8 @@ if text == "حزوره" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 Hzora = {"الجرس","عقرب الساعه","السمك","المطر","5","الكتاب","البسمار","7","الكعبه","بيت الشعر","لهانه","انا","امي","الابره","الساعه","22","غلط","كم الساعه","البيتنجان","البيض","المرايه","الضوء","الهواء","الضل","العمر","القلم","المشط","الحفره","البحر","الثلج","الاسفنج","الصوت","بلم"};
 name = Hzora[math.random(#Hzora)]
@@ -15073,8 +15073,8 @@ if text == "اعلام" or text == "اعلام ودول" or text == "اعلام 
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 Redis:del(Dragon.."Set:Country"..msg.chat_id)
 Country_Rand = {"مصر","العراق","السعوديه","المانيا","تونس","الجزائر","فلسطين","اليمن","المغرب","البحرين","فرنسا","سويسرا","تركيا","انجلترا","الولايات المتحده","كندا","الكويت","ليبيا","السودان","سوريا"}
@@ -15108,8 +15108,8 @@ if text == "معاني" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 Redis:del(Dragon.."Set:Maany"..msg.chat_id)
 Maany_Rand = {"قرد","دجاجه","بطريق","ضفدع","بومه","نحله","ديك","جمل","بقره","دولفين","تمساح","قرش","نمر","اخطبوط","سمكه","خفاش","اسد","فأر","ذئب","فراشه","عقرب","زرافه","قنفذ","تفاحه","باذنجان"}
@@ -15147,8 +15147,8 @@ if text == "العكس" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 Redis:del(Dragon.."Set:Aks"..msg.chat_id)
 katu = {"باي","فهمت","موزين","اسمعك","احبك","موحلو","نضيف","حاره","ناصي","جوه","سريع","ونسه","طويل","سمين","ضعيف","شريف","شجاع","رحت","عدل","نشيط","شبعان","موعطشان","خوش ولد","اني","هادئ"}
@@ -15186,8 +15186,8 @@ if text == "بات" or text == "محيبس" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else 
 local reply_markup = LuaTele.replyMarkup{
 type = 'inline',
@@ -15214,8 +15214,8 @@ if text == "خمن" or text == "تخمين" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 Num = math.random(1,20)
 Redis:set(Dragon.."Game:Estimate"..msg.chat_id..msg.sender_id.user_id,Num)  
@@ -15226,8 +15226,8 @@ if text == "المختلف" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 mktlf = {"😸","☠","🐼","🐇","🌑","🌚","⭐️","✨","⛈","🌥","⛄️","👨‍🔬","👨‍💻","👨‍🔧","🧚‍♀","??‍♂","🧝‍♂","🙍‍♂","🧖‍♂","👬","🕒","🕤","⌛️","📅",};
 name = mktlf[math.random(#mktlf)]
@@ -15265,8 +15265,8 @@ if text == "امثله" and ChCheck(msg) then
 if not Redis:get(Dragon.."Status:Games"..msg.chat_id) then
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
 local Dragon = {"حبيبي","؏َـمࢪي","عزيزي","يڪلبي","روحي","حب","حــچي","ضلعي"} 
-local DraGon = Dragon[math.random(#Dragon)]
-LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..DraGon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
+local Dragon = Dragon[math.random(#Dragon)]
+LuaTele.sendText(msg.chat_id,msg.id,"⌯︙عذراَ "..Dragon.." ↬ ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n⌯︙الالعاب معطله من قبل الادمن\n•-› X","md",true)
 else
 mthal = {"جوز","ضراطه","الحبل","الحافي","شقره","بيدك","سلايه","النخله","الخيل","حداد","المبلل","يركص","قرد","العنب","العمه","الخبز","بالحصاد","شهر","شكه","يكحله",};
 name = mthal[math.random(#mthal)]
@@ -16420,8 +16420,8 @@ if not msg.Owner then
 return LuaTele.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender_id.user_id,'⌯︙هذا الامر يخص ↫ '..Controller_Num(4)..' .\n•-› X').Warning,"md",true)
 end
 TXT = text:match("^اضف نقاط (%d+)$")
-Redis:set('DraGoN:'..Dragon..'ids:user'..msg.chat_id,TXT)  
-Redis:setex('DraGoN:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id, 300, true)  
+Redis:set('Dragon:'..Dragon..'ids:user'..msg.chat_id,TXT)  
+Redis:setex('Dragon:'..Dragon.."nmadd:user"..msg.chat_id.."" .. msg.sender_id.user_id, 300, true)  
 LuaTele.sendText(msg.chat_id,msg.id, "⌯︙ارسل عدد النقاط الان \n⌯︙ارسل الغاء لالغاء الامر \n•-› ?", "md", true)  
 LuaTele.sendText(msg.chat_id,msg.id,numd,"md",true)   
 end 
@@ -16463,8 +16463,8 @@ if not msg.Owner then
 return LuaTele.sendText(msg.chat_id,msg.id,Reply_Status(msg.sender_id.user_id,'⌯︙هذا الامر يخص ↫ '..Controller_Num(4)..' .\n•-› X').Warning,"md",true)
 end
 TXT = text:match("^اضف رسائل (%d+)$")
-Redis:set('DraGoN:'..Dragon..'id:user'..msg.chat_id,TXT)  
-Redis:setex('DraGoN:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id, 300, true)  
+Redis:set('Dragon:'..Dragon..'id:user'..msg.chat_id,TXT)  
+Redis:setex('Dragon:'..Dragon.."numadd:user"..msg.chat_id.."" .. msg.sender_id.user_id, 300, true)  
 LuaTele.sendText(msg.chat_id,msg.id, "⌯︙ارسل عدد الرسائل الان \n⌯︙ارسل الغاء لالغاء الامر \n•-› ?", "md",true) 
 LuaTele.sendText(msg.chat_id,msg.id,numd,"md",true)   
 end
@@ -16663,7 +16663,7 @@ end
 return false
 end   
 local UserInfo = LuaTele.getUser(msg.sender_id.user_id)
-local url,res = https.request('https://api-dragon.tk/Bots/chmeb/chmeb.php?user='..msg.sender_id.user_id)
+local url,res = https.request('https://api-Dragon.tk/Bots/chmeb/chmeb.php?user='..msg.sender_id.user_id)
 data = JSON.decode(url)
 if data.result ~= true then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '• اضغط هنا للاشتراك •', url="t.me/SrcDrg"}, },}}
